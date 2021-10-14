@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/product/edit}" method="post" th:object="${product}" novalidate="novalidate">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label for="name">Name : </label>
+        <input type="text" id="name" th:field="*{name}">
+    </div>
+    <div>
+        <label for="description">Description : </label>
+        <input type="text" id="description" th:field="*{description}">
+    </div>
+
+    <div>
+        <label for="image">Image : </label>
+        <input type="text" id="image" th:field="*{image}">
+    </div>
+    <button>Update</button>
+</form>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

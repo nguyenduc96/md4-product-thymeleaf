@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/product/create}">Create</a>
+<table id = "products">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>image</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pro,proStat : ${products}">
+        <td th:text="${proStat.count}"></td>
+        <td th:text="${pro.getName()}"></td>
+        <td th:text="${pro.getDescription()}"></td>
+        <td th:text="${pro.getImage()}"></td>
+        <td><a th:href="@{/product/{id}/edit(id=${pro.getId()})}">edit</a></td>
+        <td><a th:href="@{/product/{id}/delete(id=${pro.getId()})}">delete</a></td>
+        <td><a th:href="@{/product/{id}/view(id=${pro.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
